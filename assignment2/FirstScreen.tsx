@@ -23,10 +23,10 @@ const FirstScreen = (props: FirstScreenPropType) => {
     <View style={styles.card}>
       <Image source={{ uri: item.image }} style={styles.image} />
       <View style={{ marginLeft: 10 }}>
-        <Text style={styles.text} numberOfLines={2}>
+        <Text style={styles.cardTitle} numberOfLines={2}>
           {item.title}
         </Text>
-        <Text style={styles.description}>
+        <Text style={styles.cardDescription}>
           {item.description.length > 50 ? item.description.substring(0, 50) + "..." : item.description}
         </Text>
       </View>
@@ -41,7 +41,7 @@ const FirstScreen = (props: FirstScreenPropType) => {
         renderItem={renderItem}
         ListEmptyComponent={<Text>No items selected</Text>}
       />
-      <View style={styles.buttonContainer}>
+      <View >
         <Button
           title="Go to Second Screen"
           onPress={goToSecondScreen}
@@ -52,44 +52,32 @@ const FirstScreen = (props: FirstScreenPropType) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    backgroundColor: 'lightgrey',
-  },
-  card: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    marginStart: 10,
-    padding: 10,
-    marginTop: 10,
-    width: 'auto',
-    marginEnd:55,
-    shadowColor: '#000',
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
-  },
-  image: {
-    width: 50,
-    height: 50,
-  },
-  text: {
-    fontSize: 18,
-  },
-  description: {
-    fontSize: 12,
-    marginTop: 10,
-  },
-  buttonContainer: {
-    position: 'absolute',
-    bottom: 30,
-    width: '100%',
-    alignItems: 'center',
-  },
-});
+    container: {
+      flex: 1,
+      padding: 16,
+    },
+    card: {
+      backgroundColor: '#fff',
+      borderRadius: 8,
+      marginBottom: 16,
+      elevation: 4,
+      overflow: 'hidden',
+    },
+    image: {
+      width: '100%',
+      height: 150,
+    },
+    cardContent: {
+      padding: 16,
+    },
+    cardTitle: {
+      fontSize: 18,
+      fontWeight: 'bold',
+    },
+    cardDescription: {
+      fontSize: 14,
+      marginTop: 8,
+    },
+  });
 
 export default FirstScreen;
