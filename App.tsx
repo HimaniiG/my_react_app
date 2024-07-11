@@ -4,26 +4,30 @@
  *
  * @format
  */
-// import React from 'react';
-// import { NavigationContainer } from '@react-navigation/native';
-// import HomeScreen from './screens/HomeScreen';
-// import AboutScreen from './screens/AboutScreen';
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import DetailsScreen from './screens/Details';
-// import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-// import AllScreens from './screens/AllScreens';
-// import TabScreens from './screens/TabScreens';
-// import TopTabScreens from './screens/TopTabScreens';
-// import Product from './flatlist_with_api/Products';
-// import Products from './flatlist_with_api/Products';
-// import Demo from './forms/Demo';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import HomeScreen from './screens/HomeScreen';
+import AboutScreen from './screens/AboutScreen';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import DetailsScreen from './screens/Details';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import AllScreens from './screens/AllScreens';
+import TabScreens from './screens/TabScreens';
+import TopTabScreens from './screens/TopTabScreens';
+import Product from './flatlist_with_api/Products';
+import Products from './flatlist_with_api/Products';
+import Demo from './forms/Demo';
+import Search from './hooks/Search';
+import UseCallback from './hooks/UseCallback';
+import UseRef from './hooks/UseRef';
+import NavigationComponent from './assignment2/NavigationComponent';
 
 
-// export default function App() {
-//     return (
-//       <Demo/>
-//     );
-// }
+export default function App() {
+    return (
+      <NavigationComponent/>
+    );
+}
 
 // import React, { useState } from 'react';
 // import { NavigationContainer } from '@react-navigation/native';
@@ -71,33 +75,33 @@
 //   );
 // }
 
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import NewsScreen from './screens/NewsScreen';
-import ProfileScreen from './screens/ProfileScreen';
-import CounterStack from './screens/CounterStack';
+// import React from 'react';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import NewsScreen from './screens/NewsScreen';
+// import ProfileScreen from './screens/ProfileScreen';
+// import CounterStack from './screens/CounterStack';
 
-export type ScreenTypeList = {
-  News: undefined;
-  Profile: undefined;
-  CounterStack: undefined;
-};
+// export type ScreenTypeList = {
+//   News: undefined;
+//   Profile: undefined;
+//   CounterStack: undefined;
+// };
 
-const BottomTab = createBottomTabNavigator<ScreenTypeList>();
+// const BottomTab = createBottomTabNavigator<ScreenTypeList>();
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <BottomTab.Navigator>
-        <BottomTab.Screen
-          name="CounterStack"
-          component={CounterStack}
-        />
-        <BottomTab.Screen name="News" component={NewsScreen} />
-        <BottomTab.Screen name="Profile" component={ProfileScreen} />
-      </BottomTab.Navigator>
-    </NavigationContainer>
-  );
-}
+// export default function App() {
+//   return (
+//     <NavigationContainer>
+//       <BottomTab.Navigator>
+//         <BottomTab.Screen
+//           name="CounterStack"
+//           component={CounterStack}
+//         />
+//         <BottomTab.Screen name="News" component={NewsScreen} />
+//         <BottomTab.Screen name="Profile" component={ProfileScreen} />
+//       </BottomTab.Navigator>
+//     </NavigationContainer>
+//   );
+// }
 

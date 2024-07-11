@@ -20,6 +20,7 @@ const Products = () => {
     useEffect(() => {
         getProducts()
     }, []);
+    
     const getProducts = () => {
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
