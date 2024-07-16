@@ -5,12 +5,13 @@
  * @format
  */
 import React from 'react';
-import NavigationComponent from './assignment2/NavigationComponent';
+import ReduxRootComponent from './redux/ReduxRootComponent';
 
 
 export default function App() {
     return (
-      <NavigationComponent/>
+      <ReduxRootComponent/>
+      
     );
 }
 
