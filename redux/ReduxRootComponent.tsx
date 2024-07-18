@@ -1,59 +1,44 @@
-import React from 'react';
-import { View, Text, StyleSheet ,ScrollView} from 'react-native';
+import React, { useEffect } from 'react';
+import { View, StyleSheet, FlatList } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import ReduxHeader from './ReduxHeader';
 import ReduxProducts from './ReduxProducts';
+import { getDataFromApi } from './Action';
+import { RootState } from './RootReducer';
+import { Item } from './CartActionTypes';
 
 const ReduxRootComponent = () => {
+  const dispatch = useDispatch();
+  const dataFromApi = useSelector((state: RootState) => state.products);
 
-  const products = [
-    {
-        name:'Camera',
-        color: 'black',
-        price: 40000,
-        Image:'https://i.ibb.co/1r28gMk/1.webp'
+  useEffect(() => {
+    getProducts();
+  }, [dispatch]);
 
-    },
-    {
-        name:'Camera 2',
-        color: 'white',
-        price: 50000,
-        Image:'https://i.ibb.co/1r28gMk/1.webp'
-
-    },
-    {
-        name:'Camera 3',
-        color: 'green',
-        price: 60000,
-        Image:'https://i.ibb.co/1r28gMk/1.webp'
-
-    },
-    {
-        name:'Camera 4',
-        color: 'green',
-        price: 90000,
-        Image:'https://i.ibb.co/1r28gMk/1.webp'
-
-    },
-    {
-        name:'Camera 5',
-        color: 'green',
-        price: 80000,
-        Image:'https://i.ibb.co/1r28gMk/1.webp'
-
+  const getProducts = async () => {
+    try {
+      const res = await fetch('https://fakestoreapi.com/products');
+      const data = await res.json();
+      const mappedData: Item[] = data.map((product: any) => ({
+        id: product.id,
+        name: product.title,
+        price: product.price,
+        Image: product.image,
+      }));
+      dispatch(getDataFromApi(mappedData));
+    } catch (error) {
+      console.error('Failed to fetch products', error);
     }
-
-  ]
-
+  };
 
   return (
     <View style={styles.container}>
-      <ScrollView>
-      <ReduxHeader/>
-
-      {
-        products.map((item) => <ReduxProducts item = {item}/>)
-      }
-      </ScrollView>
+      <FlatList
+        data={dataFromApi}
+        renderItem={({ item }) => <ReduxProducts item={item} />}
+        keyExtractor={(item) => item.id.toString()}
+        ListHeaderComponent={<ReduxHeader />}
+      />
     </View>
   );
 };
@@ -61,8 +46,7 @@ const ReduxRootComponent = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding:10,
-    justifyContent:'center'
+    padding: 10,
   },
 });
 

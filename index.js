@@ -12,4 +12,5 @@ const reduxWrapper = () => (
 )
 
 
+
 AppRegistry.registerComponent(appName, () => reduxWrapper);

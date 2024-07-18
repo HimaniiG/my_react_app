@@ -4,27 +4,27 @@ import { View, Text, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 
 const ReduxHeader = () => {
-    
-  const cartData = useSelector((state: RootState) => state.reducer)
-  const [cartItems,setCartItems] = useState(0);
+  const cartData = useSelector((state: RootState) => state.cart);
+  const [cartItems, setCartItems] = useState(0);
 
   useEffect(() => {
-    setCartItems(cartData.length)
-  },[cartData])
+    setCartItems(cartData.length);
+  }, [cartData]);
 
   return (
-    <View style = {styles.container}>
-      <Text style = {{borderRadius: 15, fontSize:24,textAlign :'right', padding:10}}> {cartItems} </Text>
-      </View>
+    <View style={styles.container}>
+      <Text style={{ borderRadius: 15, fontSize: 24, textAlign: 'right', padding: 10 }}>
+        {cartItems}
+      </Text>
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'orange'
+    backgroundColor: 'orange',
   },
 });
-
 
 export default ReduxHeader;
