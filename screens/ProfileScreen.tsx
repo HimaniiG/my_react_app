@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, Button } from 'react-native';
 
 const ProfileScreen = () => {
   return (
+
     <View style={styles.container}>
       <Text style={styles.profileName}>Himani</Text>
       <Text style={styles.profileEmail}>Himani@yopmail.com</Text>

@@ -1,6 +1,6 @@
 import {  configureStore } from '@reduxjs/toolkit';
 import rootReducer from './RootReducer';
-
+import { legacy_createStore as createStore } from 'redux';
 
 
 

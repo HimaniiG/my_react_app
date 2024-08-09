@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CounterScreen from './CounterScreen';
 import DetailsScreen from './Details';
+import ProfileScreen from './ProfileScreen';
+
 
 export type CounterStackParams = {
   Counter: undefined;
   Details: { counter: number; setCounter: (newValue: number) => void };
 };
+
+
+
+
+
 
 const Stack = createNativeStackNavigator<CounterStackParams>();
 

@@ -2,6 +2,8 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import {Text,View, StyleSheet,Button} from 'react-native';
 import { stackScreens } from './AllScreens';
 
+
+
 type HomeScreenPropType = NativeStackScreenProps<stackScreens,"Home">;
 
 
